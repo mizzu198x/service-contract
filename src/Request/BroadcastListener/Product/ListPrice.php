@@ -19,13 +19,13 @@ class ListPrice implements ContextualInterface
     #[Assert\Type(type: 'float')]
     public ?float $specialPrice;
 
-    #[JMS\Type(name: 'date')]
-    #[Assert\Type(type: 'date')]
-    public ?\DateTimeInterface $specialFrom;
+    #[JMS\Type(name: 'datetime')]
+    #[Assert\Type(type: 'datetime')]
+    public ?\DateTime $specialFrom;
 
-    #[JMS\Type(name: 'date')]
-    #[Assert\Type(type: 'date')]
-    public ?\DateTimeInterface $specialTo;
+    #[JMS\Type(name: 'datetime')]
+    #[Assert\Type(type: 'datetime')]
+    public ?\DateTime $specialTo;
 
     #[JMS\Type(name: 'string')]
     #[Assert\NotBlank]
