@@ -8,7 +8,7 @@ use Symfony\Sample\ContextualInterface;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Price implements ContextualInterface
+class ListPrice implements ContextualInterface
 {
     #[JMS\Type(name: 'float')]
     #[Assert\Type(type: 'float')]

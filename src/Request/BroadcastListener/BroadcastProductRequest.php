@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Sample\Request\BroadcastListener;
 
-use Symfony\Sample\Request\BroadcastListener\Product\Price;
+use Symfony\Sample\Request\BroadcastListener\Product\ListPrice;
 use Symfony\Sample\ContextualInterface;
 use Symfony\Sample\RequestBodyInterface;
 use Symfony\Sample\ValidatableRequestInterface;
@@ -42,12 +42,14 @@ class BroadcastProductRequest implements
     #[Assert\Type(type: 'integer')]
     public int $stock;
 
-    #[JMS\SerializedName(name: 'listPrice')]
     #[JMS\Type(name: 'App\Contract\Request\BroadcastListener\Common\Price')]
     #[Assert\Type(type: 'App\Contract\Request\BroadcastListener\Common\Price')]
+    #[Assert\NotNull]
     #[Assert\Valid]
-    public ?Price $listPrice = null;
+    public ListPrice $listPrice;
 
+    #[JMS\Type(name: 'datetime')]
+    #[Assert\Type(type: 'datetime')]
     public ?\DateTime $updatedAt = null;
 
     /**
@@ -61,7 +63,7 @@ class BroadcastProductRequest implements
             'description' => $this->description,
             'is_sellable' => $this->isSellable,
             'stock' => $this->stock,
-            'list_price' => $this->listPrice?->getContext(),
+            'list_price' => $this->listPrice->getContext(),
             'updated_at' => $this->updatedAt?->format('Y-m-d H:i:s'),
         ];
     }
