@@ -42,7 +42,7 @@ class BroadcastProductRequest implements
     public ListPrice $listPrice;
 
     #[Assert\Type(type: 'datetime')]
-    public ?\DateTime $updatedAt = null;
+    public \DateTime $updatedAt;
 
     public function getContext(): array
     {
@@ -53,7 +53,7 @@ class BroadcastProductRequest implements
             'is_sellable' => $this->isSellable,
             'stock' => $this->stock,
             'list_price' => $this->listPrice->getContext(),
-            'updated_at' => $this->updatedAt?->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updatedAt->format('Y-m-d H:i:s'),
         ];
     }
 }
