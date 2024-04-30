@@ -20,20 +20,20 @@ class BroadcastProductRequest implements
     #[Assert\NotBlank]
     public string $sku;
 
-    #[Assert\NotNull]
     #[Assert\Type(type: 'string')]
     #[Assert\Length(max: 255)]
+    #[Assert\NotNull]
     public string $name;
 
     #[Assert\Type(type: 'string')]
     public ?string $description = null;
 
-    #[Assert\NotNull]
     #[Assert\Type(type: 'boolean')]
+    #[Assert\NotNull]
     public bool $isSellable = false;
 
-    #[Assert\NotNull]
     #[Assert\Type(type: 'integer')]
+    #[Assert\NotNull]
     public int $stock;
 
     #[Assert\Type(type: 'Symfony\Sample\Request\BroadcastListener\Product\ListPrice')]
@@ -42,6 +42,7 @@ class BroadcastProductRequest implements
     public ListPrice $listPrice;
 
     #[Assert\Type(type: 'datetime')]
+    #[Assert\NotNull]
     public \DateTime $updatedAt;
 
     public function getContext(): array
