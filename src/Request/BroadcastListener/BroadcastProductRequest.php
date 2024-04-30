@@ -36,7 +36,7 @@ class BroadcastProductRequest implements
     #[Assert\Type(type: 'integer')]
     public int $stock;
 
-    #[Assert\Type(type: 'App\Contract\Request\BroadcastListener\Common\Price')]
+    #[Assert\Type(type: 'Symfony\Sample\Request\BroadcastListener\Product\ListPrice')]
     #[Assert\NotNull]
     #[Assert\Valid]
     public ListPrice $listPrice;
