@@ -22,10 +22,6 @@ class ListPrice implements ContextualInterface
     #[Assert\Type(type: 'datetime')]
     public ?\DateTime $specialTo;
 
-    #[Assert\NotBlank]
-    #[Assert\Currency]
-    public string $currencyCode;
-
     public function getContext(): array
     {
         return [
@@ -33,7 +29,6 @@ class ListPrice implements ContextualInterface
             'special_price' => $this->specialPrice,
             'special_from' => $this->specialFrom?->format('Y-m-d H:i:s'),
             'special_to' => $this->specialTo?->format('Y-m-d H:i:s'),
-            'currency_code' => $this->currencyCode,
         ];
     }
 }
