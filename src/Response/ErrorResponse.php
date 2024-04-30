@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Symfony\Sample\TC14\Response;
+namespace Symfony\Sample\Response;
 
 class ErrorResponse
 {
