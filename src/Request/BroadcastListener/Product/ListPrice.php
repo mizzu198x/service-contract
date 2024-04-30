@@ -14,13 +14,13 @@ class ListPrice implements ContextualInterface
     public float $salePrice;
 
     #[Assert\Type(type: 'float')]
-    public ?float $specialPrice;
+    public ?float $specialPrice = null;
 
     #[Assert\Type(type: 'datetime')]
-    public ?\DateTime $specialFrom;
+    public ?\DateTime $specialFrom = null;
 
     #[Assert\Type(type: 'datetime')]
-    public ?\DateTime $specialTo;
+    public ?\DateTime $specialTo = null;
 
     public function getContext(): array
     {
