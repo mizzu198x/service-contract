@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Sample\Request\BroadcastListener\Product;
 
+use JMS\Serializer\Annotation as JMS;
 use Symfony\Sample\ContextualInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -16,10 +17,12 @@ class ListPrice implements ContextualInterface
     #[Assert\Type(type: 'float')]
     public ?float $specialPrice = null;
 
-    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
+    #[JMS\Type(name: "DateTime<'Y-m-d H:i:s', null, 'Y-m-d H:i:s'>")]
+    #[Assert\Type(type: 'DateTime')]
     public ?\DateTime $specialFrom = null;
 
-    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
+    #[JMS\Type(name: "DateTime<'Y-m-d H:i:s', null, 'Y-m-d H:i:s'>")]
+    #[Assert\Type(type: 'DateTime')]
     public ?\DateTime $specialTo = null;
 
     public function getContext(): array
