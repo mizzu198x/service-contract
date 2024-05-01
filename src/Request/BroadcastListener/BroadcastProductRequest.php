@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Sample\Request\BroadcastListener;
 
+use JMS\Serializer\Annotation as JMS;
 use Symfony\Sample\Request\BroadcastListener\Product\ListPrice;
 use Symfony\Sample\ContextualInterface;
 use Symfony\Sample\RequestBodyInterface;
@@ -41,7 +42,8 @@ class BroadcastProductRequest implements
     #[Assert\Valid]
     public ListPrice $listPrice;
 
-    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
+    #[JMS\Type(name: "DateTime<'Y-m-d H:i:s', null, 'Y-m-d H:i:s'>")]
+    #[Assert\Type(type: 'DateTime')]
     #[Assert\NotNull]
     public \DateTime $updatedAt;
 

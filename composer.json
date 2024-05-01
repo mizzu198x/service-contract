@@ -3,7 +3,8 @@
     "description": "Contract classes",
     "require": {
         "php": ">=8.1",
-        "symfony/validator": "*"
+        "symfony/validator": "*",
+        "jms/serializer": "^3.30"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "*",
