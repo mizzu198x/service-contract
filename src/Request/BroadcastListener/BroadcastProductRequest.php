@@ -41,7 +41,7 @@ class BroadcastProductRequest implements
     #[Assert\Valid]
     public ListPrice $listPrice;
 
-    #[Assert\Type(type: 'datetime')]
+    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
     #[Assert\NotNull]
     public \DateTime $updatedAt;
 

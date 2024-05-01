@@ -16,10 +16,10 @@ class ListPrice implements ContextualInterface
     #[Assert\Type(type: 'float')]
     public ?float $specialPrice = null;
 
-    #[Assert\Type(type: 'datetime')]
+    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
     public ?\DateTime $specialFrom = null;
 
-    #[Assert\Type(type: 'datetime')]
+    #[Assert\DateTime(format: \DateTimeInterface::ATOM)]
     public ?\DateTime $specialTo = null;
 
     public function getContext(): array

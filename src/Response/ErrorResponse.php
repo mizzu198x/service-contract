@@ -6,11 +6,13 @@ namespace Symfony\Sample\Response;
 
 class ErrorResponse
 {
-    public const DEFAULT_MESSAGE = 'General error';
+    public const DEFAULT_MESSAGE = 'Internal Server Error';
 
-    public const DEFAULT_CODE = 1000000;
+    public const DEFAULT_CODE = 500;
 
     public string $message = self::DEFAULT_MESSAGE;
+
+    public ?string $exceptionMessage = null;
 
     public int $code = self::DEFAULT_CODE;
 
@@ -26,6 +28,7 @@ class ErrorResponse
         return [
             'error' => array_merge([
                 'message' => $this->message,
+                'exception' => $this->exceptionMessage,
                 'code' => $this->code,
             ], $errorList),
         ];
